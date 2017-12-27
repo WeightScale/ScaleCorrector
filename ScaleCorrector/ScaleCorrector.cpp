@@ -1,15 +1,19 @@
 #include "Arduino.h"
 #include "CAT5171.h"
+#include "WirelessRemoteController.h"
 /*
  * ScaleCorrector.ino
  *
  * Created: 12/25/2017 9:02:01 PM
  * Author: Kostya
  */ 
+#define buttonA 2
+#define buttonB 0
+#define buttonC 3
+#define buttonD 1
 
+WirelessRemoteController remote_controller(0, 1, 2, 3);
 
-//
-//
 CAT5171 potAD0(CAT5171_AD0);
 CAT5171 potAD1(CAT5171_AD1);
 
@@ -18,28 +22,41 @@ void setup(){
 	Wire.begin();
 	potAD0.begin();
 	potAD1.begin();
-	potAD1.setResistance(256);
+	potAD0.reset();
+	potAD1.reset();
 	  /* add setup code here, setup code runs once when the processor starts */
 
 }
-unsigned char i0, i1;
+unsigned char i0, i1=128;
 void loop(){
-	
-	potAD0.setResistance(i1);
-	//i0++;
-	i1++;
-	//if(i0 > 254)
-		//i0 = 1;
-	if(i1 >= 254)
-		i1 = 1;
-	delay(100);
-	//potAD0.reset();
-	//potAD1.reset();
-	//delay(500);
-	
-	//potAD0.shutdown();
-	//potAD1.shutdown();
-	  /* add main program code here, this code starts again each time it ends */
+
+	bool current_rx[4];
+	if(remote_controller.getCurrentValue(current_rx)) {
+		
+		for (int i = 0; i < 4; i++) {
+			if(current_rx[i]){
+				switch(i){
+					case buttonA:
+						potAD0.setResistance(i1++);
+						potAD1.setResistance(~i1);
+					break;
+					case buttonB:
+						potAD0.setResistance(i1--);
+						potAD1.setResistance(~i1);
+					break;
+					case buttonC:
+						potAD0.shutdown();
+						potAD1.shutdown();
+					break;
+				}	
+			}
+			
+			/*if(current_rx[i])
+				current_rx[i]=false;*/
+		}
+	}
+
+	delay(1000);	
 
 }
 

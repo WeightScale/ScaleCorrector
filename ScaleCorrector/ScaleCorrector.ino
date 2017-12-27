@@ -1,3 +1,4 @@
+#include "WirelessRemoteController.h"
 #include "CAT5171.h"
 /*
  * ScaleCorrector.ino
