@@ -12,7 +12,7 @@ CAT5171::CAT5171(uint8_t addr){
 	_addr = addr;	
 };
 
-CAT5171::begin(){
+void CAT5171::begin(){
 	shutdown();
 }
 
