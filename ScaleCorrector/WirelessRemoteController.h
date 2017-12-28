@@ -20,6 +20,19 @@
 #include "WProgram.h"
 #endif
 
+#define PIN_D0 0
+#define PIN_D1 1
+#define PIN_D2 2
+#define PIN_D3 3
+#define PIN_VT 4  /*! PORD4*/
+
+#define PLUS_CALIBRATION	12	/*! Нажаты две кнопки C and A*/
+#define MINUS_CALIBRATION	9	/*! Нажаты две кнопки C and B*/
+#define ACTION_BUTTON_A		4	/*! Нажата кнопка A*/
+#define ACTION_BUTTON_B		1	/*! Нажата кнопка B*/
+#define ACTION_BUTTON_C		8	/*! Нажата кнопка C*/
+#define ACTION_BUTTON_D		2	/*! Нажата кнопка D*/
+
 class WirelessRemoteController{
 	public:
     /*!
@@ -30,8 +43,8 @@ class WirelessRemoteController{
      * \param pin_D2 (int) Digital input pins connected to D2 remote controller device
      * \param pin_D3 (int) Digital input pins connected to D3 remote controller device
      */
-	WirelessRemoteController(int pin_D0, int pin_D1, int pin_D2, int pin_D3);
-
+	WirelessRemoteController();
+	~WirelessRemoteController();
     /*!
      * \brief getCurrentValue Get current data sent by wireless remote controller
      *
@@ -39,7 +52,9 @@ class WirelessRemoteController{
      *
      * \return (bool) Did remote controller send data?
      */
-	bool getCurrentValue(bool data[4]) const;
+	bool getCurrentValue(bool data[4]);
+	bool readBitsFromPort();
+	byte getBits(){return _pinsBit;};
 
     /*!
      * \brief addTrigger Launch a function every time remote controller send data
@@ -47,11 +62,15 @@ class WirelessRemoteController{
      * \param trigger_pin (int) DT digital trigger input pin (must be an interruptable pin: https://www.arduino.cc/en/Reference/AttachInterrupt)
      * \param (void function()) Function that will be launched every time a data is sent from remote controller
      */
-	void addTrigger(int pin_VT, void (*function)());
+	void addTrigger( void (*function)());
 
 	private:
 	int _pins[4];
+	byte _pinsBit;	
+	bool flagVT;
 };
+
+extern WirelessRemoteController remoteController;
 
 #endif //WirelessRemoteController_h
 

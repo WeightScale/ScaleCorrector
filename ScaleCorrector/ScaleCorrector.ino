@@ -1,3 +1,5 @@
+#include "CORE.h"
+#include "HX711.h"
 #include "WirelessRemoteController.h"
 #include "CAT5171.h"
 /*

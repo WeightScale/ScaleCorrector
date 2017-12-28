@@ -13,17 +13,19 @@
 
 class CAT5171{
 	private:
-	uint8_t _addr;
+	int _addr;
 	
 	public:
 	CAT5171();
-	CAT5171(uint8_t addr);
+	CAT5171(int addr);
 	void setResistance(uint8_t);
+	uint8_t getResistance();
 	void begin();
 	void shutdown();
 	void reset();
 	
 };
+
 
 #define CAT5171_AD0 0x2C /*! Адрес AD0 семейства CAT5171  */
 #define CAT5171_AD1 0x2D /*! Адрес AD1 семейства CAT5171  */
