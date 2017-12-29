@@ -14,9 +14,6 @@ CoreClass::CoreClass(){
 CoreClass::~CoreClass(){};
 
 void CoreClass::begin(){
-	//core_value->offset = &_adc_ofset;
-	//core_value->factorP = (float*)((POTAD0)._factor);
-	//core_value->factorM = *POTAD1._factor;
 }	
 
 /*! Функция калибровки плюсового значения*/
@@ -29,9 +26,6 @@ void CoreClass::doPlusCalibration(){
 	POT_PLUS.setResistance(0);
 	delay(100);
 	core_value.offset = hx711.read();
-	//setAdcOfset(hx711.read());
-	//POTAD0.setResistance(p0);
-	//POTAD1.setResistance(p1);
 	while(1){
 		if (remoteController.readBitsFromPort()){
 			
@@ -48,13 +42,9 @@ void CoreClass::doPlusCalibration(){
 				break;
 				case ACTION_BUTTON_C:	/*! Выйти и сохранить результат салибровки*/
 					{
-						core_value.r = POT_PLUS.getResistance();						
-						//POTAD0.shutdown();
-						//POTAD1.shutdown();
-						//delay(100);
+						core_value.r = POT_PLUS.getResistance();
 						core_value.l_adc = hx711.read();
 						POT_PLUS.setResistance(0);
-						//POTAD0.setFactor(((float)l_adc - (float)getAdcOfset()) / (float)r);
 						core_value.factorP = ((float)core_value.l_adc - (float)core_value.offset) / (float)core_value.r;
 						eeprom_update_block (&core_value, &core_value_eep, sizeof(value_t));
 						
@@ -119,7 +109,6 @@ void CoreClass::doPlus(){
 	POT_MINUS.setResistance(0);
 	delay(500);
 	POT_PLUS.setResistance(0);
-	//hx711.powerUp();
 	while(1){
 		r = (hx711.read() - core_value.offset) / core_value.factorP;
 		r = constrain(r, 0, 255);
@@ -128,7 +117,6 @@ void CoreClass::doPlus(){
 			if (remoteController.getBits()==ACTION_BUTTON_C){
 				POT_PLUS.setResistance(0);
 				POT_MINUS.setResistance(0);
-				//hx711.powerDown();
 				return;
 			}
 		}	
@@ -141,7 +129,6 @@ void CoreClass::doMinus(){
 	POT_MINUS.setResistance(2);
 	delay(500);
 	POT_MINUS.setResistance(0);
-	//hx711.powerUp();
 	while(1){
 		r = (hx711.read() - core_value.offset) / core_value.factorM;
 		r = constrain(r, 0, 255);
@@ -150,15 +137,13 @@ void CoreClass::doMinus(){
 			if (remoteController.getBits()==ACTION_BUTTON_C){
 				POT_PLUS.setResistance(0);
 				POT_MINUS.setResistance(0);
-				//hx711.powerDown();
 				return;
 			}
 		}
 	}
 }
 
-uint8_t CoreClass::isResistance(long adc){
-	
+uint8_t CoreClass::isResistance(long adc){	
 	return;
 };
 	
