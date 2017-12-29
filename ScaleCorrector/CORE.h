@@ -14,10 +14,10 @@
 
 typedef struct{
 	long offset  ;		//код ацп нулевой вес
-	unsigned long int adc_min  ;		//код ацп ноля
-	long int weight_max;				//калибровочный вес
-	long int weight_min;				//вес ноль
-	long int sensor_limit;		//Предельный вес датчика	
+	long l_adc;
+	uint8_t r;
+	float factorP  ;		//коэфициент перевода ацп в сопротивление для прибавления
+	float factorM  ;		//коэфициент перевода ацп в сопротивление для вычитания
 }value_t;
 
 extern value_t EEMEM core_value_eep;
@@ -26,22 +26,27 @@ extern value_t core_value;
 class CoreClass{
 	
 	private:
-		long _adc_ofset;
-		
+				
 	
 	public:
+		long _adc_ofset;
 		CoreClass();
 		~CoreClass();
+		void begin();
 		void doPlusCalibration();
 		void doMinusCalibration();
+		void doPlus();
+		void doMinus();
+		uint8_t isResistance(long);
 		void setAdcOfset(long a){_adc_ofset = a;};
 		long getAdcOfset(){return _adc_ofset;}
+			
 	
 };
 
 extern CoreClass CORE;
-extern CAT5171 POTAD0;
-extern CAT5171 POTAD1;
+extern CAT5171 POT_PLUS;
+extern CAT5171 POT_MINUS;
 
 #endif
 

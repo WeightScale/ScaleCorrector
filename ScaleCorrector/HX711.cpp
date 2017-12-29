@@ -56,4 +56,12 @@ long Q2HX711::read() {
 	return ((uint32_t) data[2] << 16) | ((uint32_t) data[1] << 8) | (uint32_t) data[0];
 }
 
+void Q2HX711::powerDown(){
+	digitalWrite(CLOCK_PIN, LOW);
+	digitalWrite(CLOCK_PIN, HIGH);
+}
+
+void Q2HX711::powerUp(){
+	digitalWrite(CLOCK_PIN, LOW);
+}
 

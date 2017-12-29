@@ -26,6 +26,8 @@ class Q2HX711{
 		bool readyToSend();
 		void setGain(byte gain = 128);
 		long read();
+		void powerDown();
+		void powerUp();
 };
 
 extern Q2HX711 hx711;

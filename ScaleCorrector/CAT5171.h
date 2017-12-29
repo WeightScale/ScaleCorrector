@@ -13,16 +13,21 @@
 
 class CAT5171{
 	private:
-	int _addr;
+		int _addr;
+		
 	
 	public:
-	CAT5171();
-	CAT5171(int addr);
-	void setResistance(uint8_t);
-	uint8_t getResistance();
-	void begin();
-	void shutdown();
-	void reset();
+		CAT5171();
+		CAT5171(int addr);
+		void setResistance(uint8_t);
+		uint8_t getResistance();
+		void begin();
+		void shutdown();
+		void reset();
+		void setFactor(float f){_factor = f;};
+		float getFactor(){return _factor;};
+		
+		float _factor  ;		//коэфициент перевода ацп в сопротивление	
 	
 };
 
