@@ -1,4 +1,4 @@
-/*
+п»ї/*
  * \brief Receive data from wireless remote controller (implementation)
  *
  * \author Quentin Comte-Gaz <quentin@comte-gaz.com>
@@ -39,8 +39,8 @@ bool WirelessRemoteController::getCurrentValue(bool data[4]){
 	return is_valid;
 }
 
-/*! Получаем биты данных на порту
-	Возвращаем true если есть данные
+/*! РџРѕР»СѓС‡Р°РµРј Р±РёС‚С‹ РґР°РЅРЅС‹С… РЅР° РїРѕСЂС‚Сѓ
+	Р’РѕР·РІСЂР°С‰Р°РµРј true РµСЃР»Рё РµСЃС‚СЊ РґР°РЅРЅС‹Рµ
  */
 bool WirelessRemoteController::readBitsFromPort(){
 	//_pinsBit = 0;

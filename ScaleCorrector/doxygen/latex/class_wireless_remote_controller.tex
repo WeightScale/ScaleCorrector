@@ -1,0 +1,95 @@
+\hypertarget{class_wireless_remote_controller}{\section{Класс Wireless\-Remote\-Controller}
+\label{class_wireless_remote_controller}\index{Wireless\-Remote\-Controller@{Wireless\-Remote\-Controller}}
+}
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_wireless_remote_controller_ab8837249a4c68875aeaff238c2fde2a8}{Wireless\-Remote\-Controller} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_wireless_remote_controller}{Wireless\-Remote\-Controller} Initialize wireless remote controller. \end{DoxyCompactList}\item 
+bool \hyperlink{class_wireless_remote_controller_a4f3b935db3c689f04de63dc088927798}{get\-Current\-Value} (bool data\mbox{[}4\mbox{]})
+\begin{DoxyCompactList}\small\item\em get\-Current\-Value Get current data sent by wireless remote controller \end{DoxyCompactList}\item 
+bool \hyperlink{class_wireless_remote_controller_a9e03515a61eb5b1dc60834b4b9edeb3d}{read\-Bits\-From\-Port} ()
+\item 
+\hypertarget{class_wireless_remote_controller_a58a26da5d3e98bd4698d3e7b20006afa}{byte {\bfseries get\-Bits} ()}\label{class_wireless_remote_controller_a58a26da5d3e98bd4698d3e7b20006afa}
+
+\item 
+void \hyperlink{class_wireless_remote_controller_a4c7990f3944583e47d285b921a817374}{add\-Trigger} (void($\ast$function)())
+\begin{DoxyCompactList}\small\item\em add\-Trigger Launch a function every time remote controller send data \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Конструктор(ы)}
+\hypertarget{class_wireless_remote_controller_ab8837249a4c68875aeaff238c2fde2a8}{\index{Wireless\-Remote\-Controller@{Wireless\-Remote\-Controller}!Wireless\-Remote\-Controller@{Wireless\-Remote\-Controller}}
+\index{Wireless\-Remote\-Controller@{Wireless\-Remote\-Controller}!WirelessRemoteController@{Wireless\-Remote\-Controller}}
+\subsubsection[{Wireless\-Remote\-Controller}]{\setlength{\rightskip}{0pt plus 5cm}Wireless\-Remote\-Controller\-::\-Wireless\-Remote\-Controller (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_wireless_remote_controller_ab8837249a4c68875aeaff238c2fde2a8}
+
+
+\hyperlink{class_wireless_remote_controller}{Wireless\-Remote\-Controller} Initialize wireless remote controller. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em pin\-\_\-\-D0} & (int) Digital input pins connected to D0 remote controller device \\
+\hline
+{\em pin\-\_\-\-D1} & (int) Digital input pins connected to D1 remote controller device \\
+\hline
+{\em pin\-\_\-\-D2} & (int) Digital input pins connected to D2 remote controller device \\
+\hline
+{\em pin\-\_\-\-D3} & (int) Digital input pins connected to D3 remote controller device \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Методы}
+\hypertarget{class_wireless_remote_controller_a4c7990f3944583e47d285b921a817374}{\index{Wireless\-Remote\-Controller@{Wireless\-Remote\-Controller}!add\-Trigger@{add\-Trigger}}
+\index{add\-Trigger@{add\-Trigger}!WirelessRemoteController@{Wireless\-Remote\-Controller}}
+\subsubsection[{add\-Trigger}]{\setlength{\rightskip}{0pt plus 5cm}void Wireless\-Remote\-Controller\-::add\-Trigger (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)()}]{function}
+\end{DoxyParamCaption}
+)}}\label{class_wireless_remote_controller_a4c7990f3944583e47d285b921a817374}
+
+
+add\-Trigger Launch a function every time remote controller send data 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em trigger\-\_\-pin} & (int) D\-T digital trigger input pin (must be an interruptable pin\-: \href{https://www.arduino.cc/en/Reference/AttachInterrupt}{\tt https\-://www.\-arduino.\-cc/en/\-Reference/\-Attach\-Interrupt}) \\
+\hline
+{\em (void} & function()) Function that will be launched every time a data is sent from remote controller \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_wireless_remote_controller_a4f3b935db3c689f04de63dc088927798}{\index{Wireless\-Remote\-Controller@{Wireless\-Remote\-Controller}!get\-Current\-Value@{get\-Current\-Value}}
+\index{get\-Current\-Value@{get\-Current\-Value}!WirelessRemoteController@{Wireless\-Remote\-Controller}}
+\subsubsection[{get\-Current\-Value}]{\setlength{\rightskip}{0pt plus 5cm}bool Wireless\-Remote\-Controller\-::get\-Current\-Value (
+\begin{DoxyParamCaption}
+\item[{bool}]{data\mbox{[}4\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{class_wireless_remote_controller_a4f3b935db3c689f04de63dc088927798}
+
+
+get\-Current\-Value Get current data sent by wireless remote controller 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em (bool\mbox{[}4\mbox{]})\mbox{[}out\mbox{]}} & Data received from wireless remote controller (\mbox{[}A button, B button, C button, D button\mbox{]})\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+(bool) Did remote controller send data? 
+\end{DoxyReturn}
+\hypertarget{class_wireless_remote_controller_a9e03515a61eb5b1dc60834b4b9edeb3d}{\index{Wireless\-Remote\-Controller@{Wireless\-Remote\-Controller}!read\-Bits\-From\-Port@{read\-Bits\-From\-Port}}
+\index{read\-Bits\-From\-Port@{read\-Bits\-From\-Port}!WirelessRemoteController@{Wireless\-Remote\-Controller}}
+\subsubsection[{read\-Bits\-From\-Port}]{\setlength{\rightskip}{0pt plus 5cm}bool Wireless\-Remote\-Controller\-::read\-Bits\-From\-Port (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_wireless_remote_controller_a9e03515a61eb5b1dc60834b4b9edeb3d}
+Получаем биты данных на порту Возвращаем true если есть данные 
+
+Объявления и описания членов классов находятся в файлах\-:\begin{DoxyCompactItemize}
+\item 
+Wireless\-Remote\-Controller.\-h\item 
+Wireless\-Remote\-Controller.\-cpp\end{DoxyCompactItemize}

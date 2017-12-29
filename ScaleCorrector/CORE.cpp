@@ -1,5 +1,4 @@
-
-#include "CORE.h"
+п»ї#include "CORE.h"
 #include "WirelessRemoteController.h"
 #include "HX711.h"
 
@@ -14,9 +13,10 @@ CoreClass::CoreClass(){
 CoreClass::~CoreClass(){};
 
 void CoreClass::begin(){
+	eeprom_read_block (&core_value, &core_value_eep, sizeof(value_t));
 }	
 
-/*! Функция калибровки плюсового значения*/
+/*! \brief Р¤СѓРЅРєС†РёСЏ РєР°Р»РёР±СЂРѕРІРєРё РїР»СЋСЃРѕРІРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ*/
 void CoreClass::doPlusCalibration(){
 	long l_adc;
 	unsigned char p0 = 0;
@@ -30,17 +30,17 @@ void CoreClass::doPlusCalibration(){
 		if (remoteController.readBitsFromPort()){
 			
 			switch(remoteController.getBits()){
-				case ACTION_BUTTON_A:	/*! Добатить вес*/
+				case ACTION_BUTTON_A:	/* Р”РѕР±Р°С‚РёС‚СЊ РІРµСЃ*/
 					if(p0 < 255){
 						POT_PLUS.setResistance(++p0);	
 					}	
 				break;
-				case ACTION_BUTTON_B:	/*! Отнять вес*/
+				case ACTION_BUTTON_B:	/* РћС‚РЅСЏС‚СЊ РІРµСЃ*/
 					if(p0 > 0){
 						POT_PLUS.setResistance(--p0);	
 					}										
 				break;
-				case ACTION_BUTTON_C:	/*! Выйти и сохранить результат салибровки*/
+				case ACTION_BUTTON_C:	/* Р’С‹Р№С‚Рё Рё СЃРѕС…СЂР°РЅРёС‚СЊ СЂРµР·СѓР»СЊС‚Р°С‚ СЃР°Р»РёР±СЂРѕРІРєРё*/
 					{
 						core_value.r = POT_PLUS.getResistance();
 						core_value.l_adc = hx711.read();
@@ -51,7 +51,7 @@ void CoreClass::doPlusCalibration(){
 						goto calout;
 					}
 				break;
-				case ACTION_BUTTON_D:	/*! Выйти без сохранения */
+				case ACTION_BUTTON_D:	/* Р’С‹Р№С‚Рё Р±РµР· СЃРѕС…СЂР°РЅРµРЅРёСЏ */
 					goto calout;
 				break;
 			}
@@ -60,7 +60,7 @@ void CoreClass::doPlusCalibration(){
 	calout: ;
 }
 
-/*! Функция калибровки минусового значения*/
+
 void CoreClass::doMinusCalibration(){
 	long l_adc;
 	unsigned char p1 = 0;
@@ -74,17 +74,17 @@ void CoreClass::doMinusCalibration(){
 		if (remoteController.readBitsFromPort()){
 		
 			switch(remoteController.getBits()){
-				case ACTION_BUTTON_A:	/*! Добатить вес*/
+				case ACTION_BUTTON_A:	/* Р”РѕР±Р°С‚РёС‚СЊ РІРµСЃ*/
 				if(p1 < 255){
 					POT_MINUS.setResistance(++p1);
 				}
 				break;
-				case ACTION_BUTTON_B:	/*! Отнять вес*/
+				case ACTION_BUTTON_B:	/* РћС‚РЅСЏС‚СЊ РІРµСЃ*/
 				if(p1 > 0){
 					POT_MINUS.setResistance(--p1);
 				}
 				break;
-				case ACTION_BUTTON_C:	/*! Выйти и сохранить результат салибровки*/
+				case ACTION_BUTTON_C:	/* Р’С‹Р№С‚Рё Рё СЃРѕС…СЂР°РЅРёС‚СЊ СЂРµР·СѓР»СЊС‚Р°С‚ СЃР°Р»РёР±СЂРѕРІРєРё*/
 				{
 					core_value.r = POT_MINUS.getResistance();
 					core_value.l_adc = hx711.read();
@@ -94,7 +94,7 @@ void CoreClass::doMinusCalibration(){
 					goto calout;
 				}
 				break;
-				case ACTION_BUTTON_D:	/*! Выйти без сохранения */
+				case ACTION_BUTTON_D:	/* Р’С‹Р№С‚Рё Р±РµР· СЃРѕС…СЂР°РЅРµРЅРёСЏ */
 				goto calout;
 				break;
 			}
@@ -143,7 +143,5 @@ void CoreClass::doMinus(){
 	}
 }
 
-uint8_t CoreClass::isResistance(long adc){	
-	return;
-};
+
 	

@@ -1,4 +1,4 @@
-/*
+п»ї/*
  * \brief Receive data from wireless remote controller (asynchronously or/and synchronously)
  *
  * This library has been tested with IC2272/2272 (315MHz and 433MHz) also called SC2272.
@@ -26,12 +26,12 @@
 #define PIN_D3 3
 #define PIN_VT 4  /*! PORD4*/
 
-#define PLUS_CALIBRATION	12	/*! Нажаты две кнопки C and A*/
-#define MINUS_CALIBRATION	9	/*! Нажаты две кнопки C and B*/
-#define ACTION_BUTTON_A		4	/*! Нажата кнопка A*/
-#define ACTION_BUTTON_B		1	/*! Нажата кнопка B*/
-#define ACTION_BUTTON_C		8	/*! Нажата кнопка C*/
-#define ACTION_BUTTON_D		2	/*! Нажата кнопка D*/
+#define PLUS_CALIBRATION	12	/*! РќР°Р¶Р°С‚С‹ РґРІРµ РєРЅРѕРїРєРё C and A*/
+#define MINUS_CALIBRATION	9	/*! РќР°Р¶Р°С‚С‹ РґРІРµ РєРЅРѕРїРєРё C and B*/
+#define ACTION_BUTTON_A		4	/*! РќР°Р¶Р°С‚Р° РєРЅРѕРїРєР° A*/
+#define ACTION_BUTTON_B		1	/*! РќР°Р¶Р°С‚Р° РєРЅРѕРїРєР° B*/
+#define ACTION_BUTTON_C		8	/*! РќР°Р¶Р°С‚Р° РєРЅРѕРїРєР° C*/
+#define ACTION_BUTTON_D		2	/*! РќР°Р¶Р°С‚Р° РєРЅРѕРїРєР° D*/
 
 class WirelessRemoteController{
 	public:

@@ -1,4 +1,4 @@
-// CAT5171.h
+п»ї// CAT5171.h
 
 #ifndef _CAT5171_h
 #define _CAT5171_h
@@ -14,10 +14,11 @@
 class CAT5171{
 	private:
 		int _addr;
-		
 	
 	public:
+		/*! РљР»Р°СЃСЃ С†РёС„СЂРѕРІРѕРіРѕ РїРѕС‚РµРЅС†РёРѕРјРµС‚СЂР° */
 		CAT5171();
+		/*! РљР»Р°СЃСЃ С†РёС„СЂРѕРІРѕРіРѕ РїРѕС‚РµРЅС†РёРѕРјРµС‚СЂР° */
 		CAT5171(int addr);
 		void setResistance(uint8_t);
 		uint8_t getResistance();
@@ -27,13 +28,13 @@ class CAT5171{
 		void setFactor(float f){_factor = f;};
 		float getFactor(){return _factor;};
 		
-		float _factor  ;		//коэфициент перевода ацп в сопротивление	
+		float _factor  ;		//РєРѕСЌС„РёС†РёРµРЅС‚ РїРµСЂРµРІРѕРґР° Р°С†Рї РІ СЃРѕРїСЂРѕС‚РёРІР»РµРЅРёРµ	
 	
 };
 
 
-#define CAT5171_AD0 0x2C /*! Адрес AD0 семейства CAT5171  */
-#define CAT5171_AD1 0x2D /*! Адрес AD1 семейства CAT5171  */
+#define CAT5171_AD0 0x2C /*! РђРґСЂРµСЃ AD0 СЃРµРјРµР№СЃС‚РІР° CAT5171  */
+#define CAT5171_AD1 0x2D /*! РђРґСЂРµСЃ AD1 СЃРµРјРµР№СЃС‚РІР° CAT5171  */
 
 #define CAT5171_SHUTDOWN	0x20
 #define CAT5171_RESET		0x40

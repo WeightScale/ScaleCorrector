@@ -1,4 +1,4 @@
-#include "Arduino.h"
+п»ї#include "Arduino.h"
 #include <avr/eeprom.h>
 #include "CAT5171.h"
 #include "WirelessRemoteController.h"
@@ -12,37 +12,31 @@
  */ 
 CoreClass CORE;
 WirelessRemoteController remoteController;
-
 CAT5171 POT_PLUS(CAT5171_AD0);
 CAT5171 POT_MINUS(CAT5171_AD1);
-
 Q2HX711 hx711(PIN_DATA, PIN_CLOCK);
-uint8_t i0 = 1, i1 = 1;
 
 void setup(){	
-	eeprom_read_block (&core_value, &core_value_eep, sizeof(value_t));
-	
+	CORE.begin();
 	Wire.begin();
 	POT_PLUS.setResistance(0);
 	POT_MINUS.setResistance(0);
-
 }
-byte b;
+
 void loop(){	
 	
 	if (remoteController.readBitsFromPort()){
-		b = remoteController.getBits();
-		switch(b){
+		switch(remoteController.getBits()){
 			case PLUS_CALIBRATION:
 				CORE.doPlusCalibration();
 			break;
 			case MINUS_CALIBRATION:
 				CORE.doMinusCalibration();				
 			break;
-			case ACTION_BUTTON_A:	/*! Включить додавление процентов */				
+			case ACTION_BUTTON_A:	/*! Р’РєР»СЋС‡РёС‚СЊ РґРѕРґР°РІР»РµРЅРёРµ РїСЂРѕС†РµРЅС‚РѕРІ */				
 				CORE.doPlus();
 			break;
-			case ACTION_BUTTON_B:	/*! Включить снятие процениов */
+			case ACTION_BUTTON_B:	/*! Р’РєР»СЋС‡РёС‚СЊ СЃРЅСЏС‚РёРµ РїСЂРѕС†РµРЅРёРѕРІ */
 				CORE.doMinus();
 			break;
 			case ACTION_BUTTON_C:
@@ -55,7 +49,6 @@ void loop(){
 			break;
 		}	
 	}	
-
 }
 
 

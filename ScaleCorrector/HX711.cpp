@@ -1,4 +1,4 @@
-#include <Arduino.h>
+﻿#include <Arduino.h>
 #include "HX711.h"
 
 Q2HX711::Q2HX711(byte output_pin, byte clock_pin) {

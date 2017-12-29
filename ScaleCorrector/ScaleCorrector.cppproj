@@ -43,7 +43,7 @@
     <EraseKey />
     <avrtool>com.atmel.avrdbg.tool.jtagice3plus</avrtool>
     <avrtoolserialnumber>J30200019973</avrtoolserialnumber>
-    <avrdeviceexpectedsignature>0x1E950F</avrdeviceexpectedsignature>
+    <avrdeviceexpectedsignature>0x1E9205</avrdeviceexpectedsignature>
     <com_atmel_avrdbg_tool_simulator>
       <ToolOptions>
         <InterfaceProperties>
@@ -477,6 +477,14 @@ vm.boardsource.path=C:\Users\Kostya\AppData\Local\arduino15\packages\arduino\har
 runtime.platform.path=C:\Users\Kostya\AppData\Local\arduino15\packages\arduino\hardware\avr\1.6.20
 vm.platformname.name=avr
 build.arch=AVR
+builder.noino=false
+build.architecture=4.9.2-atmel3.5.4-arduino2
+vmresolved.compiler.path=C:\Users\Kostya\AppData\Local\arduino15\packages\arduino\tools\avr-gcc\4.9.2-atmel3.5.4-arduino2\bin\
+vmresolved.tools.path=C:\Users\Kostya\AppData\Local\arduino15\packages\arduino\tools\avr-gcc\4.9.2-atmel3.5.4-arduino2
+build.path=C:\Users\Kostya\AppData\Local\Temp\VMBuilds\ScaleCorrector\pro_8MHzatmega328\Debug
+build.project_name=ScaleCorrector.ino
+build.project_path=C:\Users\Kostya\Documents\Solution\Scale Corrector\Arduino\ScaleCorrector\ScaleCorrector
+ProjectDir=C:\Users\Kostya\Documents\Solution\Scale Corrector\Arduino\ScaleCorrector\ScaleCorrector\
 </arduino.board.property_bag>
         <arduino.build.core>arduino</arduino.build.core>
         <arduino.upload.protocol>arduino</arduino.upload.protocol>
@@ -890,6 +898,14 @@ vm.boardsource.path=C:\Users\Kostya\AppData\Local\arduino15\packages\arduino\har
 runtime.platform.path=C:\Users\Kostya\AppData\Local\arduino15\packages\arduino\hardware\avr\1.6.20
 vm.platformname.name=avr
 build.arch=AVR
+builder.noino=false
+build.architecture=4.9.2-atmel3.5.4-arduino2
+vmresolved.compiler.path=C:\Users\Kostya\AppData\Local\arduino15\packages\arduino\tools\avr-gcc\4.9.2-atmel3.5.4-arduino2\bin\
+vmresolved.tools.path=C:\Users\Kostya\AppData\Local\arduino15\packages\arduino\tools\avr-gcc\4.9.2-atmel3.5.4-arduino2
+build.path=C:\Users\Kostya\AppData\Local\Temp\VMBuilds\ScaleCorrector\pro_8MHzatmega328\Debug
+build.project_name=ScaleCorrector.ino
+build.project_path=C:\Users\Kostya\Documents\Solution\Scale Corrector\Arduino\ScaleCorrector\ScaleCorrector
+ProjectDir=C:\Users\Kostya\Documents\Solution\Scale Corrector\Arduino\ScaleCorrector\ScaleCorrector\
 </arduino.board.property_bag>
         <arduino.build.core>arduino</arduino.build.core>
         <arduino.upload.protocol>arduino</arduino.upload.protocol>

@@ -1,4 +1,4 @@
-// HX711.h
+﻿// HX711.h
 
 #ifndef _HX711_h
 #define _HX711_h

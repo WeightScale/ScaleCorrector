@@ -1,4 +1,4 @@
-// CORE.h
+п»ї// CORE.h
 
 #ifndef _CORE_h
 #define _CORE_h
@@ -13,11 +13,11 @@
 #include "CAT5171.h"
 
 typedef struct{
-	long offset  ;		//код ацп нулевой вес
+	long offset  ;		//РєРѕРґ Р°С†Рї РЅСѓР»РµРІРѕР№ РІРµСЃ
 	long l_adc;
 	uint8_t r;
-	float factorP  ;		//коэфициент перевода ацп в сопротивление для прибавления
-	float factorM  ;		//коэфициент перевода ацп в сопротивление для вычитания
+	float factorP  ;		//РєРѕСЌС„РёС†РёРµРЅС‚ РїРµСЂРµРІРѕРґР° Р°С†Рї РІ СЃРѕРїСЂРѕС‚РёРІР»РµРЅРёРµ РґР»СЏ РїСЂРёР±Р°РІР»РµРЅРёСЏ
+	float factorM  ;		//РєРѕСЌС„РёС†РёРµРЅС‚ РїРµСЂРµРІРѕРґР° Р°С†Рї РІ СЃРѕРїСЂРѕС‚РёРІР»РµРЅРёРµ РґР»СЏ РІС‹С‡РёС‚Р°РЅРёСЏ
 }value_t;
 
 extern value_t EEMEM core_value_eep;
@@ -26,22 +26,20 @@ extern value_t core_value;
 class CoreClass{
 	
 	private:
-				
+		long _adc_ofset;		
 	
-	public:
-		long _adc_ofset;
+	public:		
 		CoreClass();
 		~CoreClass();
 		void begin();
+		/*! \brief Р¤СѓРЅРєС†РёСЏ РєР°Р»РёР±СЂРѕРІРєРё РїР»СЋСЃРѕРІРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ*/
 		void doPlusCalibration();
+		/*! \brief Р¤СѓРЅРєС†РёСЏ РєР°Р»РёР±СЂРѕРІРєРё РјРёРЅСѓСЃРѕРІРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ */
 		void doMinusCalibration();
 		void doPlus();
 		void doMinus();
-		uint8_t isResistance(long);
 		void setAdcOfset(long a){_adc_ofset = a;};
-		long getAdcOfset(){return _adc_ofset;}
-			
-	
+		long getAdcOfset(){return _adc_ofset;}	
 };
 
 extern CoreClass CORE;
