@@ -29,19 +29,57 @@ WirelessRemoteController::~WirelessRemoteController(){};
 *	
 *	\return Возвращает true- если пришли новые данные с пульта. 
  */
-bool WirelessRemoteController::readBitsFromPort(){
-	
-	if(digitalRead(PIN_VT)){
+bool WirelessRemoteController::readBitsFromPort(){	
+	if(readBitVT()){
 		if (flagVT){
 			flagVT = false;	
 			_pinsBit = PIND & MASK_PULT_PIN;
 			return true;
-		}				
+		}						
 	}else{
 		flagVT = true;
-	}	
+	}
+	return false;
+}
+
+bool WirelessRemoteController::readBitsPortToTime(){
+	static long time;
+	static bool flag;
+	if(readBitVT()){
+		if (!flag){
+			flag= true;
+			time = millis();
+			_pinsBit = PIND & MASK_PULT_PIN;
+			return true;
+		}else {
+			if ((time + 1500) < millis()){
+				_pinsBit = PIND & MASK_PULT_PIN;
+				delay(50);
+				return true;	
+			}else{
+				return false;
+			}	
+		}				
+	}else{
+		flag = false;
+		return false;
+	}
+	/*if(readBitVT()){
+		if (flagVT){
+			flagVT = false;	
+			_pinsBit = PIND & MASK_PULT_PIN;
+			return true;
+		}
+						
+	}else{
+		flagVT = true;
+	}*/	
 
 	return false;
+}
+
+bool WirelessRemoteController::readBitVT(){
+	return (bool)digitalRead(PIN_VT);
 }
 
 void WirelessRemoteController::addTrigger(void (*function)()){	

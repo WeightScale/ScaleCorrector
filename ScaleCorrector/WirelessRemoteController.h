@@ -45,6 +45,8 @@ class WirelessRemoteController{
 	~WirelessRemoteController();
     
 	bool readBitsFromPort();
+	bool readBitsPortToTime();
+	bool readBitVT();
 	/*! 
 	* \brief Почучаем считаные биты методом readBitsFromPort.	
 	*	

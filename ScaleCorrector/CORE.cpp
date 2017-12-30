@@ -31,7 +31,7 @@ void CoreClass::doPlusCalibration(){
 	delay(100);
 	core_value.offset = hx711.read();
 	while(1){
-		if (remoteController.readBitsFromPort()){
+		if (remoteController.readBitsPortToTime()){
 			
 			switch(remoteController.getBits()){
 				case ACTION_BUTTON_A:				///< Добатить вес.
@@ -58,6 +58,7 @@ void CoreClass::doPlusCalibration(){
 					goto calout;
 				break;
 			}
+			
 		}
 	}
 	calout: ;
@@ -82,7 +83,7 @@ void CoreClass::doMinusCalibration(){
 	delay(100);
 	core_value.offset = hx711.read();
 	while(1){
-		if (remoteController.readBitsFromPort()){
+		if (remoteController.readBitsPortToTime()){
 		
 			switch(remoteController.getBits()){
 				case ACTION_BUTTON_A:				///< Добатить минусовой вес.
