@@ -13,16 +13,20 @@
 #include "CAT5171.h"
 
 typedef struct{
-	long offset  ;		//код ацп нулевой вес
+	long offset  ;		//< код ацп нулевой вес
 	long l_adc;
 	uint8_t r;
-	float factorP  ;		//коэфициент перевода ацп в сопротивление для прибавления
-	float factorM  ;		//коэфициент перевода ацп в сопротивление для вычитания
+	float factorP  ;		//< коэфициент перевода ацп в сопротивление для прибавления
+	float factorM  ;		//< коэфициент перевода ацп в сопротивление для вычитания
 }value_t;
 
 extern value_t EEMEM core_value_eep;
 extern value_t core_value;
 
+ /*! \brief Основной класс для работы с коректором.
+ 
+	
+ */
 class CoreClass{
 	
 	private:
@@ -38,6 +42,8 @@ class CoreClass{
 		void doMinusCalibration();
 		void doPlus();
 		void doMinus();
+		void disconnect();
+		void reset();
 		void setAdcOfset(long a){_adc_ofset = a;};
 		long getAdcOfset(){return _adc_ofset;}	
 };

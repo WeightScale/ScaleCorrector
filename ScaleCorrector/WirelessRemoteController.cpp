@@ -1,54 +1,40 @@
 ﻿/*
- * \brief Receive data from wireless remote controller (implementation)
+ * \brief Прием данных с беспроводного пульта дистанционного управления.
  *
- * \author Quentin Comte-Gaz <quentin@comte-gaz.com>
- * \date 1 July 2016
+ * \author Konst <kreogen@email.ua>
+ * \date 25.12.2017
  * \license MIT License (contact me if too restrictive)
- * \copyright Copyright (c) 2016 Quentin Comte-Gaz
+ * \copyright Copyright (c) 2018 Konst
  * \version 1.0
  */
 
 #include "WirelessRemoteController.h"
 
 WirelessRemoteController::WirelessRemoteController(){
-	_pins[0] = PIN_D0;
-	_pins[1] = PIN_D1;
-	_pins[2] = PIN_D2;
-	_pins[3] = PIN_D3;
-
-	for (int i = 0; i < 4; i++){
-		pinMode(_pins[i], INPUT);
-	}
+	pinMode(PIN_D0, INPUT);
+	pinMode(PIN_D1, INPUT);
+	pinMode(PIN_D2, INPUT);
+	pinMode(PIN_D3, INPUT);
+	
+	pinMode(PIN_VT, INPUT);
 }
 
 WirelessRemoteController::~WirelessRemoteController(){};
 
-bool WirelessRemoteController::getCurrentValue(bool data[4]){
-	bool is_valid = false;
-
-	for(int i = 0; i < 4; i++){
-		data[i] = digitalRead(_pins[i]);
-		is_valid |= data[i];
-		
-		_pinsBit <<= 1;
-		if (data[i]){
-			_pinsBit++;
-		}
-	}
-
-	return is_valid;
-}
-
-/*! Получаем биты данных на порту
-	Возвращаем true если есть данные
+/*! \brief Считываем биты данных.
+*
+*	Метод проверяет если на пульте нажаты кнопки и мы их считываем первый раз, 
+*	тогда считываем данные с порта и ставим флаг flagVT = true чтобы знать что данные  уже считаны.
+*	Когда кнопка на пульте отпущена, тогда следующая проверка сбросит флаг flagVT = false.
+*	
+*	\return Возвращает true- если пришли новые данные с пульта. 
  */
 bool WirelessRemoteController::readBitsFromPort(){
-	//_pinsBit = 0;
 	
 	if(digitalRead(PIN_VT)){
 		if (flagVT){
 			flagVT = false;	
-			_pinsBit = PIND & 0x0f;
+			_pinsBit = PIND & MASK_PULT_PIN;
 			return true;
 		}				
 	}else{

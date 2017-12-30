@@ -18,10 +18,6 @@
 #define ARDUINO 10803
 #define ARDUINO_AVR_PRO
 #define ARDUINO_ARCH_AVR
-//
-//
-//
-//
 
 #include "pins_arduino.h" 
 #include "Arduino.h"
