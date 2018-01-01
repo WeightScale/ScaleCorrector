@@ -15,7 +15,7 @@ CoreClass::~CoreClass(){};
 void CoreClass::begin(){
 	Wire.begin();
 	Wire.setClock(400000);
-	disconnect();
+	reset();
 	eeprom_read_block (&core_value, &core_value_eep, sizeof(value_t));	
 }	
 
@@ -45,7 +45,7 @@ void CoreClass::doPlusCalibration(){
 						POT_PLUS.setResistance(--p0);	
 					}										
 				break;
-				case ACTION_BUTTON_C:				///< Выйти и сохранить результат салибровки.
+				case PLUS_CALIBRATION:				///< Выйти и сохранить результат салибровки.
 					{
 						core_value.r = POT_PLUS.getResistance();
 						core_value.l_adc = hx711.read();
@@ -55,11 +55,15 @@ void CoreClass::doPlusCalibration(){
 						goto calout;
 					}
 				break;
+				case ACTION_BUTTON_C:
+						core_value.r = POT_PLUS.getResistance();
+						core_value.l_adc = hx711.read();
+						core_value.factorO = (float)core_value.r/((float)core_value.l_adc - (float)core_value.offset);	
+				break;
 				case ACTION_BUTTON_D:				///< Выйти без сохранения.
 					goto calout;
 				break;
-			}
-			
+			}			
 		}
 	}
 	calout: ;
@@ -187,6 +191,18 @@ void CoreClass::doMinus(){
 	_plus: ;
 	{
 		remoteController.setFlagVT(true);									///< Устанавливаем флаг чтобы кнопка плюс сработала	
+	}
+}
+
+void CoreClass::standart(){
+	while(1){
+		if (remoteController.readBitsFromPort()){
+			if (remoteController.getBits() == ACTION_BUTTON_C ){
+				hx711.powerUp();
+				CORE.reset();
+				return;
+			}
+		}
 	}
 }
 
