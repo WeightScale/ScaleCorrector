@@ -15,7 +15,8 @@
 typedef struct{
 	long offset  ;		//< код ацп нулевой вес
 	long l_adc;
-	uint8_t r;
+	int r;
+	float factorO;			//< коэфоциент наклон отклонения 
 	float factorP  ;		//< коэфициент перевода ацп в сопротивление для прибавления
 	float factorM  ;		//< коэфициент перевода ацп в сопротивление для вычитания
 }value_t;
@@ -42,6 +43,7 @@ class CoreClass{
 		void doMinusCalibration();
 		void doPlus();
 		void doMinus();
+		void standart();
 		void disconnect();
 		void reset();
 		void setAdcOfset(long a){_adc_ofset = a;};

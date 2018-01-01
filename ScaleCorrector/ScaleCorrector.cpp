@@ -26,11 +26,11 @@ void loop(){
 	if (remoteController.readBitsFromPort()){
 		switch(remoteController.getBits()){
 			case PLUS_CALIBRATION:			///< Войти в процесс калибровки плюсовой коррекции.
-				hx711.powerUp();
+				//hx711.powerUp();
 				CORE.doPlusCalibration();
 			break;
 			case MINUS_CALIBRATION:			///< Войти в процесс калибровки минусовой коррекции.
-				hx711.powerUp();
+				//hx711.powerUp();
 				CORE.doMinusCalibration();				
 			break;
 			case ACTION_BUTTON_A:			///< Включить додавление процентов.
@@ -38,7 +38,7 @@ void loop(){
 				CORE.doPlus();
 			break;
 			case ACTION_BUTTON_B:			///< Включить снятие процениов.
-				hx711.powerUp();
+				//hx711.powerUp();
 				CORE.doMinus();
 			break;
 			case ACTION_BUTTON_C:			///< Сбросить коррекцию					
@@ -48,10 +48,23 @@ void loop(){
 			case ACTION_BUTTON_D:			///< Отключится от схемы				
 				hx711.powerDown();
 				CORE.disconnect();
+				CORE.standart();
 			break;
 		}	
-	}	
+	}
+	core_value.l_adc = hx711.read();
+	core_value.r = (float)(core_value.l_adc-core_value.offset)*core_value.factorO;
+	if (core_value.r<0){
+		POT_PLUS.setResistance(0);
+		POT_MINUS.setResistance(core_value.r);	
+	}else{
+		POT_PLUS.setResistance(core_value.r);
+		POT_MINUS.setResistance(0);	
+	}
+	
 }
+
+
 
 
 
