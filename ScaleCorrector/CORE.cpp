@@ -14,6 +14,7 @@ CoreClass::~CoreClass(){};
 
 void CoreClass::begin(){
 	Wire.begin();
+	Wire.setClock(400000);
 	disconnect();
 	eeprom_read_block (&core_value, &core_value_eep, sizeof(value_t));	
 }	
