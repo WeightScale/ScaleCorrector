@@ -98,7 +98,7 @@
     <ListValues>
       <Value>__AVR_ATmega328p__</Value>
       <Value>__AVR_ATmega328P__</Value>
-      <Value>ARDUINO=10803</Value>
+      <Value>ARDUINO=10805</Value>
       <Value>ARDUINO_MAIN</Value>
       <Value>F_CPU=8000000L</Value>
       <Value>__AVR__</Value>
@@ -108,18 +108,18 @@
   </avrgcc.compiler.symbols.DefSymbols>
   <avrgcc.compiler.directories.IncludePaths>
     <ListValues>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries/Wire/src</Value>
-      <Value>C:/Program Files (x86)/Arduino/libraries</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries</Value>
-      <Value>C:/Users/Kostya/Documents/Arduino/libraries</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/cores/arduino</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/variants/eightanaloginputs</Value>
       <Value>../../../ScaleCorrector</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/avr/</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.8.1/include</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.2/include</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src</Value>
+      <Value>C:/Program Files (x86)/Arduino/libraries</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries</Value>
+      <Value>C:/Users/Костя/Documents/Arduino/libraries</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/cores/arduino</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/variants/eightanaloginputs</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/avr/</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.2/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.3/include</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize more (-O2)</avrgcc.compiler.optimization.level>
@@ -134,7 +134,7 @@
     <ListValues>
       <Value>__AVR_ATmega328p__</Value>
       <Value>__AVR_ATmega328P__</Value>
-      <Value>ARDUINO=10803</Value>
+      <Value>ARDUINO=10805</Value>
       <Value>ARDUINO_MAIN</Value>
       <Value>F_CPU=8000000L</Value>
       <Value>__AVR__</Value>
@@ -144,18 +144,18 @@
   </avrgcccpp.compiler.symbols.DefSymbols>
   <avrgcccpp.compiler.directories.IncludePaths>
     <ListValues>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries/Wire/src</Value>
-      <Value>C:/Program Files (x86)/Arduino/libraries</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries</Value>
-      <Value>C:/Users/Kostya/Documents/Arduino/libraries</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/cores/arduino</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/variants/eightanaloginputs</Value>
       <Value>../../../ScaleCorrector</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/avr/</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.8.1/include</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.2/include</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src</Value>
+      <Value>C:/Program Files (x86)/Arduino/libraries</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries</Value>
+      <Value>C:/Users/Костя/Documents/Arduino/libraries</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/cores/arduino</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/variants/eightanaloginputs</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/avr/</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.2/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.3/include</Value>
     </ListValues>
   </avrgcccpp.compiler.directories.IncludePaths>
   <avrgcccpp.compiler.optimization.level>Optimize more (-O2)</avrgcccpp.compiler.optimization.level>
@@ -177,7 +177,7 @@
   <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
 </AvrGccCpp>
     </ToolchainSettings>
-    <VMSETTING_IncludePaths>C:/Program Files (x86)/Arduino/libraries;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries;C:/Users/Kostya/AppData/Local/arduino15/packages/MiniCore/hardware/avr/1.0.4/libraries;C:/Users/Kostya/Documents/Arduino/libraries;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/cores/arduino;C:/Users/Kostya/AppData/Local/arduino15/packages/MiniCore/hardware/avr/1.0.4/variants/standard;../../../ScaleCorrector;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/avr/;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.8.1/include;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.2/include;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries/Wire/src;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries/Wire/src/utility;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/libraries;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/cores/esp8266;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/cores/esp8266/libb64;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/cores/esp8266/spiffs;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/cores/esp8266/umm_malloc;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/variants/generic;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/tools/sdk/include;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/tools/sdk/lwip/include;{build.path}/core;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/xtensa-lx106-elf/include/c++/4.8.2;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/xtensa-lx106-elf/include/c++/4.8.2/xtensa-lx106-elf;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/xtensa-lx106-elf/include;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/lib/gcc/xtensa-lx106-elf/4.8.2/include;C:/Program Files (x86)/Atmel/Studio/7.0/Extensions/3ohvhgwt.lly/Micro Platforms/visualmicro/ide-atmel/libraries;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/variants/eightanaloginputs;</VMSETTING_IncludePaths>
+    <VMSETTING_IncludePaths>C:/Program Files (x86)/Arduino/libraries;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries;C:/Users/Kostya/AppData/Local/arduino15/packages/MiniCore/hardware/avr/1.0.4/libraries;C:/Users/Kostya/Documents/Arduino/libraries;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/cores/arduino;C:/Users/Kostya/AppData/Local/arduino15/packages/MiniCore/hardware/avr/1.0.4/variants/standard;../../../ScaleCorrector;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/avr/;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.8.1/include;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.2/include;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries/Wire/src;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries/Wire/src/utility;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/libraries;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/cores/esp8266;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/cores/esp8266/libb64;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/cores/esp8266/spiffs;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/cores/esp8266/umm_malloc;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/variants/generic;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/tools/sdk/include;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/tools/sdk/lwip/include;{build.path}/core;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/xtensa-lx106-elf/include/c++/4.8.2;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/xtensa-lx106-elf/include/c++/4.8.2/xtensa-lx106-elf;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/xtensa-lx106-elf/include;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/lib/gcc/xtensa-lx106-elf/4.8.2/include;C:/Program Files (x86)/Atmel/Studio/7.0/Extensions/3ohvhgwt.lly/Micro Platforms/visualmicro/ide-atmel/libraries;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/variants/eightanaloginputs;C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src;C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries;C:/Users/Костя/Documents/Arduino/libraries;C:/Program Files (x86)/Arduino/hardware/arduino/avr/cores/arduino;C:/Program Files (x86)/Arduino/hardware/arduino/avr/variants/eightanaloginputs;C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/;C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/avr/;C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include;C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.2/include;C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.3/include;C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src/utility;</VMSETTING_IncludePaths>
     <VisualMicroSettings>
       <VisualMicroSettings>
         <ValidatedAS7>1</ValidatedAS7>
@@ -519,7 +519,7 @@ ProjectDir=C:\Users\Kostya\Documents\Solution\Scale Corrector\Arduino\ScaleCorre
     <ListValues>
       <Value>__AVR_ATmega328p__</Value>
       <Value>__AVR_ATmega328P__</Value>
-      <Value>ARDUINO=10803</Value>
+      <Value>ARDUINO=10805</Value>
       <Value>ARDUINO_MAIN</Value>
       <Value>F_CPU=8000000L</Value>
       <Value>__AVR__</Value>
@@ -529,18 +529,18 @@ ProjectDir=C:\Users\Kostya\Documents\Solution\Scale Corrector\Arduino\ScaleCorre
   </avrgcc.compiler.symbols.DefSymbols>
   <avrgcc.compiler.directories.IncludePaths>
     <ListValues>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries/Wire/src</Value>
-      <Value>C:/Program Files (x86)/Arduino/libraries</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries</Value>
-      <Value>C:/Users/Kostya/Documents/Arduino/libraries</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/cores/arduino</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/variants/eightanaloginputs</Value>
       <Value>../../../ScaleCorrector</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/avr/</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.8.1/include</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.2/include</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src</Value>
+      <Value>C:/Program Files (x86)/Arduino/libraries</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries</Value>
+      <Value>C:/Users/Костя/Documents/Arduino/libraries</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/cores/arduino</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/variants/eightanaloginputs</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/avr/</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.2/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.3/include</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize more (-O2)</avrgcc.compiler.optimization.level>
@@ -555,7 +555,7 @@ ProjectDir=C:\Users\Kostya\Documents\Solution\Scale Corrector\Arduino\ScaleCorre
     <ListValues>
       <Value>__AVR_ATmega328p__</Value>
       <Value>__AVR_ATmega328P__</Value>
-      <Value>ARDUINO=10803</Value>
+      <Value>ARDUINO=10805</Value>
       <Value>ARDUINO_MAIN</Value>
       <Value>F_CPU=8000000L</Value>
       <Value>__AVR__</Value>
@@ -565,18 +565,18 @@ ProjectDir=C:\Users\Kostya\Documents\Solution\Scale Corrector\Arduino\ScaleCorre
   </avrgcccpp.compiler.symbols.DefSymbols>
   <avrgcccpp.compiler.directories.IncludePaths>
     <ListValues>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries/Wire/src</Value>
-      <Value>C:/Program Files (x86)/Arduino/libraries</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries</Value>
-      <Value>C:/Users/Kostya/Documents/Arduino/libraries</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/cores/arduino</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/variants/eightanaloginputs</Value>
       <Value>../../../ScaleCorrector</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/avr/</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.8.1/include</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.2/include</Value>
-      <Value>C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src</Value>
+      <Value>C:/Program Files (x86)/Arduino/libraries</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries</Value>
+      <Value>C:/Users/Костя/Documents/Arduino/libraries</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/cores/arduino</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/arduino/avr/variants/eightanaloginputs</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/avr/</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.2/include</Value>
+      <Value>C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.3/include</Value>
     </ListValues>
   </avrgcccpp.compiler.directories.IncludePaths>
   <avrgcccpp.compiler.optimization.level>Optimize more (-O2)</avrgcccpp.compiler.optimization.level>
@@ -598,7 +598,7 @@ ProjectDir=C:\Users\Kostya\Documents\Solution\Scale Corrector\Arduino\ScaleCorre
   <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
 </AvrGccCpp>
     </ToolchainSettings>
-    <VMSETTING_IncludePaths>C:/Program Files (x86)/Arduino/libraries;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries;C:/Users/Kostya/AppData/Local/arduino15/packages/MiniCore/hardware/avr/1.0.4/libraries;C:/Users/Kostya/Documents/Arduino/libraries;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/cores/arduino;C:/Users/Kostya/AppData/Local/arduino15/packages/MiniCore/hardware/avr/1.0.4/variants/standard;../../../ScaleCorrector;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/avr/;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.8.1/include;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.2/include;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries/Wire/src;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries/Wire/src/utility;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/libraries;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/cores/esp8266;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/cores/esp8266/libb64;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/cores/esp8266/spiffs;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/cores/esp8266/umm_malloc;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/variants/generic;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/tools/sdk/include;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/tools/sdk/lwip/include;{build.path}/core;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/xtensa-lx106-elf/include/c++/4.8.2;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/xtensa-lx106-elf/include/c++/4.8.2/xtensa-lx106-elf;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/xtensa-lx106-elf/include;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/lib/gcc/xtensa-lx106-elf/4.8.2/include;C:/Program Files (x86)/Atmel/Studio/7.0/Extensions/3ohvhgwt.lly/Micro Platforms/visualmicro/ide-atmel/libraries;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/variants/eightanaloginputs;</VMSETTING_IncludePaths>
+    <VMSETTING_IncludePaths>C:/Program Files (x86)/Arduino/libraries;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries;C:/Users/Kostya/AppData/Local/arduino15/packages/MiniCore/hardware/avr/1.0.4/libraries;C:/Users/Kostya/Documents/Arduino/libraries;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/cores/arduino;C:/Users/Kostya/AppData/Local/arduino15/packages/MiniCore/hardware/avr/1.0.4/variants/standard;../../../ScaleCorrector;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/avr/;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.8.1/include;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.2/include;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries/Wire/src;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries/Wire/src/utility;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/libraries;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/cores/esp8266;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/cores/esp8266/libb64;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/cores/esp8266/spiffs;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/cores/esp8266/umm_malloc;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/variants/generic;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/tools/sdk/include;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/hardware/esp8266/2.3.0-rc2/tools/sdk/lwip/include;{build.path}/core;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/xtensa-lx106-elf/include/c++/4.8.2;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/xtensa-lx106-elf/include/c++/4.8.2/xtensa-lx106-elf;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/xtensa-lx106-elf/include;C:/Users/Kostya/AppData/Local/arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/lib/gcc/xtensa-lx106-elf/4.8.2/include;C:/Program Files (x86)/Atmel/Studio/7.0/Extensions/3ohvhgwt.lly/Micro Platforms/visualmicro/ide-atmel/libraries;C:/Users/Kostya/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/variants/eightanaloginputs;C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src;C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries;C:/Users/Костя/Documents/Arduino/libraries;C:/Program Files (x86)/Arduino/hardware/arduino/avr/cores/arduino;C:/Program Files (x86)/Arduino/hardware/arduino/avr/variants/eightanaloginputs;C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/;C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/avr/;C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.8.1/include;C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.2/include;C:/Program Files (x86)/Arduino/hardware/tools/avr/lib/gcc/avr/4.9.3/include;C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src/utility;</VMSETTING_IncludePaths>
     <VisualMicroSettings>
       <VisualMicroSettings>
         <ValidatedAS7>1</ValidatedAS7>
