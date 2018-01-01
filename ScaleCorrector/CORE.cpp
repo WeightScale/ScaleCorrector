@@ -14,7 +14,7 @@ CoreClass::~CoreClass(){};
 
 void CoreClass::begin(){
 	Wire.begin();
-	reset();
+	disconnect();
 	eeprom_read_block (&core_value, &core_value_eep, sizeof(value_t));	
 }	
 
@@ -127,10 +127,19 @@ void CoreClass::doPlus(){
 	POT_MINUS.setResistance(0);
 	delay(500);
 	POT_PLUS.setResistance(0);
+	CORE.disconnect();
 	while(1){
+		//hx711.powerUp();
 		r = (hx711.read() - core_value.offset) / core_value.factorP;	///< Вычисляем значение сопротивления для корекции.
+		//hx711.powerDown();	
+		//delay(500);
 		r = constrain(r, 0, 255);										///< Чтобы не вышло из диапазона.
-		POT_PLUS.setResistance(r);												
+		if (r> 0){
+			POT_PLUS.setResistance(r);
+			POT_MINUS.setResistance(0);		
+		}else{
+			CORE.disconnect();
+		}												
 		if (remoteController.readBitsFromPort()){
 			switch(remoteController.getBits()){
 				case ACTION_BUTTON_C:					
@@ -138,11 +147,12 @@ void CoreClass::doPlus(){
 					POT_PLUS.setResistance(2);								///< Для визуального определения что вышли в корректировку плюсования.
 					delay(500);
 					POT_PLUS.setResistance(0);
+					CORE.disconnect();
 					return;
 				case ACTION_BUTTON_B:
 					goto _minus;
 			}			
-		}	
+		}				
 	}
 	_minus: ;
 	{

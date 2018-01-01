@@ -26,21 +26,27 @@ void loop(){
 	if (remoteController.readBitsFromPort()){
 		switch(remoteController.getBits()){
 			case PLUS_CALIBRATION:			///< Войти в процесс калибровки плюсовой коррекции.
+				hx711.powerUp();
 				CORE.doPlusCalibration();
 			break;
 			case MINUS_CALIBRATION:			///< Войти в процесс калибровки минусовой коррекции.
+				hx711.powerUp();
 				CORE.doMinusCalibration();				
 			break;
 			case ACTION_BUTTON_A:			///< Включить додавление процентов.
+				//hx711.powerUp();
 				CORE.doPlus();
 			break;
 			case ACTION_BUTTON_B:			///< Включить снятие процениов.
+				hx711.powerUp();
 				CORE.doMinus();
 			break;
-			case ACTION_BUTTON_C:			///< Сбросить коррекцию				
+			case ACTION_BUTTON_C:			///< Сбросить коррекцию					
+				hx711.powerUp();			
 				CORE.reset();
 			break;
-			case ACTION_BUTTON_D:			///< Отключится от схемы
+			case ACTION_BUTTON_D:			///< Отключится от схемы				
+				hx711.powerDown();
 				CORE.disconnect();
 			break;
 		}	
