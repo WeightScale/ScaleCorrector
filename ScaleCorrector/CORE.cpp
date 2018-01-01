@@ -14,8 +14,7 @@ CoreClass::~CoreClass(){};
 
 void CoreClass::begin(){
 	Wire.begin();
-	Wire.setClock(400000);
-	reset();
+	Wire.setClock(400000);	
 	eeprom_read_block (&core_value, &core_value_eep, sizeof(value_t));	
 }	
 
@@ -32,15 +31,16 @@ void CoreClass::doPlusCalibration(){
 	delay(100);
 	core_value.offset = hx711.read();
 	while(1){
-		if (remoteController.readBitsPortToTime()){
-			
+		if (remoteController.readBitsPortToTime()){			
 			switch(remoteController.getBits()){
 				case ACTION_BUTTON_A:				///< Добатить вес.
-					if(p0 < 255){
+					POT_PLUS.setResistance(constrain(++p0,0,255));
+					/*if(p0 < 255){
 						POT_PLUS.setResistance(++p0);	
-					}	
+					}*/	
 				break;
 				case ACTION_BUTTON_B:				///< Отнять вес.
+					POT_PLUS.setResistance(constrain(--p0,0,255));
 					if(p0 > 0){
 						POT_PLUS.setResistance(--p0);	
 					}										
@@ -55,7 +55,7 @@ void CoreClass::doPlusCalibration(){
 						goto calout;
 					}
 				break;
-				case ACTION_BUTTON_C:
+				case ACTION_BUTTON_C:				///< Калибровка наклона сдвига.
 						core_value.r = POT_PLUS.getResistance();
 						core_value.l_adc = hx711.read();
 						core_value.factorO = (float)core_value.r/((float)core_value.l_adc - (float)core_value.offset);	
@@ -68,7 +68,7 @@ void CoreClass::doPlusCalibration(){
 	}
 	calout: ;
 	{
-		CORE.reset();
+		POT_PLUS.setResistance(0);
 		POT_PLUS.setResistance(2);								///< Для визуального определения что вышли в корректировку плюсования.
 		delay(500);
 		POT_PLUS.setResistance(0);
@@ -92,24 +92,29 @@ void CoreClass::doMinusCalibration(){
 		
 			switch(remoteController.getBits()){
 				case ACTION_BUTTON_A:				///< Добатить минусовой вес.
-				if(p1 < 255){
-					POT_MINUS.setResistance(++p1);
-				}
+					POT_MINUS.setResistance(constrain(++p1,0,255));
+					/*if(p1 < 255){
+						POT_MINUS.setResistance(++p1);
+					}*/
 				break;
 				case ACTION_BUTTON_B:				///< Отнять минусовой вес.
-				if(p1 > 0){
-					POT_MINUS.setResistance(--p1);
-				}
-				break;
-				case ACTION_BUTTON_C:				///< Выйти и сохранить результат салибровки.
-				{
+					POT_MINUS.setResistance(constrain(--p1,0,255));
+					/*if(p1 > 0){
+						POT_MINUS.setResistance(--p1);
+					}*/
+				break;				
+				case MINUS_CALIBRATION:				///< Выйти и сохранить результат салибровки.
 					core_value.r = POT_MINUS.getResistance();
 					core_value.l_adc = hx711.read();
 					POT_MINUS.setResistance(0);
 					core_value.factorM = ((float)core_value.l_adc - (float)core_value.offset) / (float)core_value.r;
 					eeprom_update_block (&core_value, &core_value_eep, sizeof(value_t));				
 					goto calout;
-				}
+				break;
+				case ACTION_BUTTON_C:				///< Калибровка наклона сдвига.
+					core_value.r = POT_MINUS.getResistance();
+					core_value.l_adc = hx711.read();
+					core_value.factorO = (float)core_value.r/((float)core_value.l_adc - (float)core_value.offset);
 				break;
 				case ACTION_BUTTON_D:				///< Выйти без сохранения.
 				goto calout;
@@ -119,7 +124,7 @@ void CoreClass::doMinusCalibration(){
 	}
 	calout: ;
 	{
-		CORE.reset();
+		POT_MINUS.setResistance(0);
 		POT_MINUS.setResistance(2);								///< Для визуального определения что вышли в корректировку минусования.
 		delay(500);
 		POT_MINUS.setResistance(0);
@@ -132,27 +137,16 @@ void CoreClass::doPlus(){
 	POT_MINUS.setResistance(0);
 	delay(500);
 	POT_PLUS.setResistance(0);
-	CORE.disconnect();
 	while(1){
-		//hx711.powerUp();
-		r = (hx711.read() - core_value.offset) / core_value.factorP;	///< Вычисляем значение сопротивления для корекции.
-		//hx711.powerDown();	
-		//delay(500);
+		r = (float)(hx711.read() - core_value.offset) / core_value.factorP;	///< Вычисляем значение сопротивления для корекции.		
 		r = constrain(r, 0, 255);										///< Чтобы не вышло из диапазона.
-		if (r> 0){
-			POT_PLUS.setResistance(r);
-			POT_MINUS.setResistance(0);		
-		}else{
-			CORE.disconnect();
-		}												
+		POT_PLUS.setResistance(r);				
 		if (remoteController.readBitsFromPort()){
 			switch(remoteController.getBits()){
-				case ACTION_BUTTON_C:					
-					CORE.reset();
+				case ACTION_BUTTON_C:
 					POT_PLUS.setResistance(2);								///< Для визуального определения что вышли в корректировку плюсования.
 					delay(500);
 					POT_PLUS.setResistance(0);
-					CORE.disconnect();
 					return;
 				case ACTION_BUTTON_B:
 					goto _minus;
@@ -178,7 +172,6 @@ void CoreClass::doMinus(){
 		if (remoteController.readBitsFromPort()){						///< Выходим из коректировки.
 			switch(remoteController.getBits()){
 				case ACTION_BUTTON_C:
-					CORE.reset();
 					POT_MINUS.setResistance(2);								///< Для визуального определения что вышли в корректировку минусования.
 					delay(500);
 					POT_MINUS.setResistance(0);
@@ -195,14 +188,23 @@ void CoreClass::doMinus(){
 }
 
 void CoreClass::standart(){
-	while(1){
+	hx711.powerDown();
+	CORE.disconnect();
+	while(1){		
 		if (remoteController.readBitsFromPort()){
-			if (remoteController.getBits() == ACTION_BUTTON_C ){
-				hx711.powerUp();
-				CORE.reset();
-				return;
-			}
+			switch(remoteController.getBits()){
+				case ACTION_BUTTON_C:
+				case ACTION_BUTTON_A:
+				case ACTION_BUTTON_B:
+					goto _exit;
+				break;
+			}			
 		}
+	}
+	{
+		_exit: ;
+		hx711.powerUp();
+		remoteController.setFlagVT(true);
 	}
 }
 

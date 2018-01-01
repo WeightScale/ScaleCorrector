@@ -38,7 +38,6 @@ void Q2HX711::setGain(byte gain) {
 }
 
 long Q2HX711::read() {
-	//powerUp();
 	while (!readyToSend());
 
 	byte data[3];
@@ -52,7 +51,6 @@ long Q2HX711::read() {
 		digitalWrite(CLOCK_PIN, HIGH);
 		digitalWrite(CLOCK_PIN, LOW);
 	}
-	//powerDown();
 	data[2] ^= 0x80;
 	return ((uint32_t) data[2] << 16) | ((uint32_t) data[1] << 8) | (uint32_t) data[0];
 }
