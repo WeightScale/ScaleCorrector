@@ -13,8 +13,9 @@
 #include "CAT5171.h"
 
 typedef struct{
-	long offset  ;		//< код ацп нулевой вес
+	long offset  ;			//< код ацп нулевой вес
 	long l_adc;
+	long r_adc;				//< значение ацп реального веса
 	int r;
 	float factorO;			//< коэфоциент наклон отклонения 
 	float factorP  ;		//< коэфициент перевода ацп в сопротивление для прибавления

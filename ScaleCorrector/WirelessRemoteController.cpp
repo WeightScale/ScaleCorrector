@@ -43,7 +43,7 @@ bool WirelessRemoteController::readBitsFromPort(){
 }
 
 bool WirelessRemoteController::readBitsPortToTime(){
-	static long time;
+	static long time = millis();
 	static bool flag;
 	if(readBitVT()){
 		if (!flag){

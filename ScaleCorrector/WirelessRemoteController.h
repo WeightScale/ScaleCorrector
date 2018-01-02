@@ -28,6 +28,7 @@
 
 #define PLUS_CALIBRATION	12	///< Нажаты две кнопки C and A
 #define MINUS_CALIBRATION	9	///< Нажаты две кнопки C and B
+#define OFFSET_CALIBRATION	10	///< Нажаты две кнопки C and D калибровука отклонения от реального веса
 #define ACTION_BUTTON_A		4	///< Нажата кнопка
 #define ACTION_BUTTON_B		1	///< Нажата кнопка
 #define ACTION_BUTTON_C		8	///< Нажата кнопка
