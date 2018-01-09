@@ -46,15 +46,14 @@ void loop(){
 				CORE.standart();
 			break;
 		}	
-	}
-	core_value.l_adc = hx711.read();
-	core_value.r = float(core_value.l_adc - core_value.offset) * core_value.factorO;
-	if (core_value.r<0){
-		core_value.r = abs(core_value.r);
+	}	
+	int res = float(hx711.read() - core_value.offset) * core_value.factorO;
+	if (res < 0){
+		res = abs(res);
 		POT_PLUS.setResistance(0);
-		POT_MINUS.setResistance(core_value.r);
+		POT_MINUS.setResistance(res);
 	}else{
-		POT_PLUS.setResistance(core_value.r);
+		POT_PLUS.setResistance(res);
 		POT_MINUS.setResistance(0);
 	}
 }

@@ -51,15 +51,11 @@ bool WirelessRemoteController::readBitsPortToTime(){
 			time = millis();
 			_pinsBit = PIND & MASK_PULT_PIN;
 			return true;
-		}else {
-			if ((time + 1500) < millis()){
+		}else if ((time + 1500) < millis()){
 				_pinsBit = PIND & MASK_PULT_PIN;
-				delay(50);
+				delay(100);
 				return true;	
-			}else{
-				return false;
-			}	
-		}				
+		}			
 	}else{
 		flag = false;
 		return false;

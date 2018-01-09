@@ -41,23 +41,24 @@ void CoreClass::doPlusCalibration(){
 				break;
 				case PLUS_CALIBRATION:				///< Выйти и сохранить результат салибровки.
 					{
-						core_value.r = POT_PLUS.getResistance();
+						p0 = POT_PLUS.getResistance();
 						core_value.l_adc = hx711.read();
 						POT_PLUS.setResistance(0);
-						core_value.factorP = float(core_value.r) / float(core_value.l_adc - core_value.offset) ;
+						core_value.factorP = float(p0) / float(core_value.l_adc - core_value.offset) ;
 						eeprom_update_block (&core_value, &core_value_eep, sizeof(value_t));						
 						goto calout;
 					}
 				break;
 				case OFFSET_CALIBRATION:				///< Калибровка наклона сдвига отклонения от реального веса.
-						core_value.r = POT_PLUS.getResistance();
+						p0 = POT_PLUS.getResistance();
 						core_value.r_adc = hx711.read();
-						core_value.factorO = (float)core_value.r / float(core_value.r_adc - core_value.offset);	
+						core_value.factorO = float(p0) / float(core_value.r_adc - core_value.offset);
+						core_value.corrMtoP = p0;	
 						eeprom_update_block (&core_value, &core_value_eep, sizeof(value_t));
 						POT_PLUS.setResistance(0);
 						POT_PLUS.setResistance(2);
 						delay(500);
-						POT_PLUS.setResistance(core_value.r);
+						POT_PLUS.setResistance(p0);
 				break;
 				case ACTION_BUTTON_D:				///< Выйти без сохранения.
 					goto calout;
@@ -80,8 +81,8 @@ void CoreClass::doPlusCalibration(){
 */
 void CoreClass::doMinusCalibration(){
 	unsigned char p1 = 0;
-	POT_PLUS.setResistance(0);
 	POT_MINUS.setResistance(2);						///< Для визуального определения что вошли в калибровку.
+	POT_PLUS.setResistance(0);
 	delay(500);
 	POT_MINUS.setResistance(0);
 	delay(100);
@@ -97,22 +98,23 @@ void CoreClass::doMinusCalibration(){
 					POT_MINUS.setResistance(--p1);
 				break;				
 				case MINUS_CALIBRATION:				///< Выйти и сохранить результат салибровки.
-					core_value.r = POT_MINUS.getResistance();
+					p1 = POT_MINUS.getResistance();
 					core_value.l_adc = hx711.read();
 					POT_MINUS.setResistance(0);
-					core_value.factorM = float(core_value.r) / float(core_value.l_adc - core_value.offset) ;
+					core_value.factorM = float(p1) / float(core_value.l_adc - core_value.offset) ;
 					eeprom_update_block (&core_value, &core_value_eep, sizeof(value_t));				
 					goto calout;
 				break;
 				case OFFSET_CALIBRATION:				///< Калибровка наклона сдвига отклонения от реального веса.
-					core_value.r = POT_MINUS.getResistance();
+					p1 = POT_MINUS.getResistance();
 					core_value.r_adc = hx711.read();
-					core_value.factorO = (float)core_value.r / float(core_value.r_adc - core_value.offset);	
+					core_value.factorO = float(p1) / float(core_value.r_adc - core_value.offset);	
+					core_value.corrPtoM = p1;
 					eeprom_update_block (&core_value, &core_value_eep, sizeof(value_t));
 					POT_MINUS.setResistance(0);
 					POT_MINUS.setResistance(2);
 					delay(500);
-					POT_MINUS.setResistance(core_value.r);
+					POT_MINUS.setResistance(p1);
 				break;
 				case ACTION_BUTTON_D:				///< Выйти без сохранения.
 					goto calout;
@@ -130,20 +132,21 @@ void CoreClass::doMinusCalibration(){
 }
 
 void CoreClass::doPlus(){
-	POT_PLUS.setResistance(2);											///< Для визуального определения что вошли в корректировку плюсования.
+	int res;
+	POT_PLUS.setResistance(POT_PLUS.getResistance() + 2);											///< Для визуального определения что вошли в корректировку плюсования.
 	POT_MINUS.setResistance(0);
 	delay(500);
-	POT_PLUS.setResistance(0);
+	POT_PLUS.setResistance(POT_PLUS.getResistance() - 2);
 	while(1){
-		core_value.r = float(hx711.read() - core_value.offset) * core_value.factorP;	///< Вычисляем значение сопротивления для корекции.		
-		core_value.r = constrain(core_value.r, 0, 255);										///< Чтобы не вышло из диапазона.
-		POT_PLUS.setResistance(core_value.r);				
+		res = float(hx711.read() - core_value.offset) * core_value.factorP;	///< Вычисляем значение сопротивления для корекции.		
+		res = constrain(res, 0, 255);										///< Чтобы не вышло из диапазона.
+		POT_PLUS.setResistance(res);				
 		if (remoteController.readBitsFromPort()){
 			switch(remoteController.getBits()){
 				case ACTION_BUTTON_C:
-					POT_PLUS.setResistance(2);								///< Для визуального определения что вышли в корректировку плюсования.
+					POT_PLUS.setResistance(POT_PLUS.getResistance() + 2);								///< Для визуального определения что вышли в корректировку плюсования.
 					delay(500);
-					POT_PLUS.setResistance(0);
+					POT_PLUS.setResistance(POT_PLUS.getResistance() - 2);
 					return;
 				case ACTION_BUTTON_B:
 					goto _minus;
@@ -157,20 +160,21 @@ void CoreClass::doPlus(){
 }
 
 void CoreClass::doMinus(){
-	POT_PLUS.setResistance(0);											///< Для визуального определения что вошли в корректировку минусования.
-	POT_MINUS.setResistance(2);
+	int res;												
+	POT_MINUS.setResistance(POT_MINUS.getResistance() + 2);								///< Для визуального определения что вошли в корректировку минусования.
+	POT_PLUS.setResistance(0);
 	delay(500);
-	POT_MINUS.setResistance(0);
+	POT_MINUS.setResistance(POT_MINUS.getResistance() - 2);
 	while(1){
-		core_value.r = float(hx711.read() - core_value.offset) * core_value.factorM;	///< Вычисляем значение сопротивления для корекции.
-		core_value.r = constrain(core_value.r, 0, 255);										///< Чтобы не вышло из диапазона.
-		POT_MINUS.setResistance(core_value.r);
+		res = float(hx711.read() - core_value.offset) * core_value.factorM;	///< Вычисляем значение сопротивления для корекции.
+		res = constrain(res, 0, 255);										///< Чтобы не вышло из диапазона.
+		POT_MINUS.setResistance(res);
 		if (remoteController.readBitsFromPort()){						///< Выходим из коректировки.
 			switch(remoteController.getBits()){
 				case ACTION_BUTTON_C:
-					POT_MINUS.setResistance(2);								///< Для визуального определения что вышли в корректировку минусования.
+					POT_MINUS.setResistance(POT_MINUS.getResistance() + 2);								///< Для визуального определения что вышли в корректировку минусования.
 					delay(500);
-					POT_MINUS.setResistance(0);
+					POT_MINUS.setResistance(POT_MINUS.getResistance() - 2);
 				return;
 				case ACTION_BUTTON_A:
 					goto _plus;	
